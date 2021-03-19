@@ -6,12 +6,13 @@
     <div class="d-flex justify-content-center">
         <a class="btn btn-success mt-5" href="{{ route('posts.create') }}">Create post</a>
     </div>
-    <table class="table mt-3">
+    <table class="table mt-3 table-striped">
         <thead>
             <tr>
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Posted by</th>
+            <th scope="col">slug</th>
             <th scope="col">Created at</th>
             <th scope="col">Actions</th>
             </tr>
@@ -22,6 +23,7 @@
                 <th scope="row">{{ $post['id'] }}</th>
                 <td>{{ $post['title'] }}</td>
                 <td>{{$post->user ? $post->user->name : 'user not found'}}</td>
+                <td>{{$post['slug']}}</td>
                 <td>{{$post->created_at_formated}}</td>
                 <td>
                     {{-- <a class="btn btn-info" href="{{ route('posts.show', [ 'post' => $post['id'] ]) }}">View</a>

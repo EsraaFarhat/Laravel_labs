@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if ($errors->any())
+    <div class="alert alert-danger  mt-5 container">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container mt-4">
     <form method="POST" action="{{route('posts.store')}}">
         @csrf
